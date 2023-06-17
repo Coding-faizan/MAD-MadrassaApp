@@ -3,13 +3,15 @@ package com.example.madrassaapp;
 
 public class Student {
     private String name;
+    private String rollNo;
     private int age;
-    private String className;
+    private String Class;
 
-    public Student(String name, int age, String aClass) {
+    public Student(String name, int age, String aClass,String rollNo) {
         this.name = name;
         this.age = age;
-        className = aClass;
+        Class = aClass;
+        this.rollNo = rollNo;
     }
 
     public String getName() {
@@ -20,11 +22,27 @@ public class Student {
         this.name = name;
     }
 
-    public String getClassName() {
-        return className;
+    public String getclass() {
+        return Class;
     }
 
-    public void setClassName(String className) {
-        this.className = className;
+    public void setClass(String aClass) {
+        this.Class = aClass;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getRollNo() {
+        return rollNo;
+    }
+
+    public void setRollNo(String rollNo) {
+        this.rollNo = rollNo;
     }
 }
