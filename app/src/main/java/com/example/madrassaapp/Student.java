@@ -4,12 +4,12 @@ package com.example.madrassaapp;
 public class Student {
     private String name;
     private int age;
-    private String classroom;
+    private String className;
 
     public Student(String name, int age, String aClass) {
         this.name = name;
         this.age = age;
-        classroom = aClass;
+        className = aClass;
     }
 
     public String getName() {
@@ -20,11 +20,11 @@ public class Student {
         this.name = name;
     }
 
-    public String getClassroom() {
-        return classroom;
+    public String getClassName() {
+        return className;
     }
 
-    public void setClassroom(String classroom) {
-        this.classroom = classroom;
+    public void setClassName(String className) {
+        this.className = className;
     }
 }
