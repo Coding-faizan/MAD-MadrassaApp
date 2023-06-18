@@ -13,6 +13,12 @@
         android:theme="@style/Theme.MadrassaApp"
         tools:targetApi="31">
         <activity
+            android:name=".dailyTasks"
+            android:exported="false" />
+        <activity
+            android:name=".Search"
+            android:exported="false" />
+        <activity
             android:name=".studentDetails"
             android:exported="false" />
         <activity

@@ -29,7 +29,7 @@ public class studentDetails extends AppCompatActivity {
             public void onClick(View v) {
                 String rollNo = editTextrollNo.getText().toString();
                 String name = editTextname.getText().toString();
-                int age = Integer.parseInt(editTextname.getText().toString());
+                String age = editTextname.getText().toString();
                 String Class = editTextClass.getText().toString();
 
                 Student student = new Student(name,age,Class,rollNo);

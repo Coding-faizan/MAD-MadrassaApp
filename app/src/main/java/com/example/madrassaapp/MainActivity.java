@@ -13,7 +13,6 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     private Button b1,b2,b3;
-    TextView textView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
         b1 = findViewById(R.id.button);
         b2 = findViewById(R.id.button2);
         b3 = findViewById(R.id.button3);
-        textView = findViewById(R.id.textView);
 
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -31,6 +29,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        b2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, dailyTasks.class);
+                startActivity(intent);
+            }
+        });
+
 
     }
 }

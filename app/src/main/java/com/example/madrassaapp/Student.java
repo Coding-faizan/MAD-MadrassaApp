@@ -4,10 +4,10 @@ package com.example.madrassaapp;
 public class Student {
     private String name;
     private String rollNo;
-    private int age;
+    private String age;
     private String Class;
 
-    public Student(String name, int age, String aClass,String rollNo) {
+    public Student(String name, String age, String aClass,String rollNo) {
         this.name = name;
         this.age = age;
         Class = aClass;
@@ -30,11 +30,11 @@ public class Student {
         this.Class = aClass;
     }
 
-    public int getAge() {
+    public String getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(String age) {
         this.age = age;
     }
 

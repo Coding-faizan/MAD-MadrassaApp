@@ -1,47 +1,47 @@
 package com.example.madrassaapp;
 
 public class TaskRecords {
-        private int id;
-        private int studentId;
-        private String taskType;
-        private String taskDetails;
+        private String  rollNo;
+        private String sabaq;
+        private String sabaqi;
+        private String manzil;
 
-    public TaskRecords(int id, int studentId, String taskType, String taskDetails) {
-        this.id = id;
-        this.studentId = studentId;
-        this.taskType = taskType;
-        this.taskDetails = taskDetails;
+    public TaskRecords(String rollNo, String sabaq, String sabaqi, String manzil) {
+        this.rollNo = rollNo;
+        this.sabaq = sabaq;
+        this.sabaqi = sabaqi;
+        this.manzil = manzil;
     }
 
-    public int getId() {
-        return id;
+    public String getRollNo() {
+        return rollNo;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setRollNo(String rollNo) {
+        this.rollNo = rollNo;
     }
 
-    public int getStudentId() {
-        return studentId;
+    public String getSabaq() {
+        return sabaq;
     }
 
-    public void setStudentId(int studentId) {
-        this.studentId = studentId;
+    public void setSabaq(String sabaq) {
+        this.sabaq = sabaq;
     }
 
-    public String getTaskType() {
-        return taskType;
+    public String getSabaqi() {
+        return sabaqi;
     }
 
-    public void setTaskType(String taskType) {
-        this.taskType = taskType;
+    public void setSabaqi(String sabaqi) {
+        this.sabaqi = sabaqi;
     }
 
-    public String getTaskDetails() {
-        return taskDetails;
+    public String getManzil() {
+        return manzil;
     }
 
-    public void setTaskDetails(String taskDetails) {
-        this.taskDetails = taskDetails;
+    public void setManzil(String manzil) {
+        this.manzil = manzil;
     }
 }
