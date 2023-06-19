@@ -1,8 +1,10 @@
 package com.example.madrassaapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +13,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.StringTokenizer;
 
 
@@ -19,8 +22,10 @@ public class Search extends AppCompatActivity {
     private Button searchButton;
     private EditText editTextRollno;
 
+    CustomAdapter customAdapter;
+
     RecyclerView recyclerView;
-    ArrayList<String> rollNo,name,age,Class,sabaq,sabaqi,manzil;
+    List<String> rollNo,name,age,Class,sabaq,sabaqi,manzil;
     DBHelper dbHelper;
 
     @Override
@@ -30,6 +35,7 @@ public class Search extends AppCompatActivity {
 
         searchButton = findViewById(R.id.buttonSearch);
         editTextRollno = findViewById(R.id.editTextRollno);
+        recyclerView =(RecyclerView) findViewById(R.id.recyclerView);
 
         dbHelper = new DBHelper(Search.this);
         rollNo = new ArrayList<>();
@@ -46,6 +52,9 @@ public class Search extends AppCompatActivity {
             public void onClick(View v) {
                 String rollNum = editTextRollno.getText().toString();
                 displayStudentRecords(rollNum);
+                customAdapter = new CustomAdapter(rollNo,name,age,Class,sabaq,sabaqi,manzil);
+                recyclerView.setAdapter(customAdapter);
+                recyclerView.setLayoutManager(new LinearLayoutManager(Search.this));
             }
         });
     }
