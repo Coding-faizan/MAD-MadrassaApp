@@ -15,14 +15,15 @@ import java.util.List;
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHolder> {
 
     private Context context;
-    private List rollNo,name,age,Class,sabaq,sabaqi,manzil;
+    private List rollNo,name,age,Class,sabaq,sabaqi,manzil,date;
     CustomAdapter (List rollNo,
                    List name,
                    List age,
                    List Class,
                    List sabaq,
                    List sabaqi,
-                   List manzil
+                   List manzil,
+                   List date
                    ){
         this.rollNo = rollNo;
         this.name = name;
@@ -31,6 +32,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         this.sabaq = sabaq;
         this.sabaqi = sabaqi;
         this.manzil = manzil;
+        this.date = date;
     }
 
     @NonNull
@@ -50,6 +52,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         holder.sabaq_txt.setText(String.valueOf(sabaq.get(position)));
         holder.sabaqi_txt.setText(String.valueOf(sabaqi.get(position)));
         holder.manzil_txt.setText(String.valueOf(manzil.get(position)));
+        holder.date_txt.setText(String.valueOf(date.get(position)));
     }
 
     @Override
@@ -60,18 +63,19 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
 
-        TextView roll_no_txt,name_txt,age_txt,Class_txt,sabaq_txt,sabaqi_txt,manzil_txt;
+        TextView roll_no_txt,name_txt,age_txt,Class_txt,sabaq_txt,sabaqi_txt,manzil_txt,date_txt;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            roll_no_txt = itemView.findViewById(R.id.roll_no_txt);
-            name_txt = itemView.findViewById(R.id.name_txt);
-            age_txt = itemView.findViewById(R.id.age_txt);
-            Class_txt = itemView.findViewById(R.id.class_txt);
-            sabaq_txt = itemView.findViewById(R.id.sabaq_txt);
-            sabaqi_txt = itemView.findViewById(R.id.sabaqi_txt);
-            manzil_txt = itemView.findViewById(R.id.manzil_txt);
+            roll_no_txt = itemView.findViewById(R.id.roll_no_data);
+            name_txt = itemView.findViewById(R.id.name_data);
+            age_txt = itemView.findViewById(R.id.age_data);
+            Class_txt = itemView.findViewById(R.id.class_data);
+            sabaq_txt = itemView.findViewById(R.id.sabaq_data);
+            sabaqi_txt = itemView.findViewById(R.id.sabaqi_data);
+            manzil_txt = itemView.findViewById(R.id.manzil_data);
+            date_txt = itemView.findViewById(R.id.date_data);
         }
 
     }

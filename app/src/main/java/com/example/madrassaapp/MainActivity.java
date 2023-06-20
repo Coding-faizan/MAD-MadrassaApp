@@ -3,16 +3,18 @@ package com.example.madrassaapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button b1,b2,b3;
+    private Button b1,b2,b3,b4;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         b1 = findViewById(R.id.button);
         b2 = findViewById(R.id.button2);
         b3 = findViewById(R.id.button3);
+        b4 = findViewById(R.id.button4);
 
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,6 +46,21 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, Search.class);
                 startActivity(intent);
+            }
+        });
+
+        b4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String githubUrl = "https://github.com/Coding-faizan/MAD-MadrassaApp";
+
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(githubUrl));
+                if (intent.resolveActivity(getPackageManager()) != null) {
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(MainActivity.this, "No application available to open GitHub link", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

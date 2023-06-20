@@ -25,7 +25,7 @@ public class Search extends AppCompatActivity {
     CustomAdapter customAdapter;
 
     RecyclerView recyclerView;
-    List<String> rollNo,name,age,Class,sabaq,sabaqi,manzil;
+    List<String> rollNo,name,age,Class,sabaq,sabaqi,manzil,date;
     DBHelper dbHelper;
 
     @Override
@@ -45,6 +45,7 @@ public class Search extends AppCompatActivity {
         sabaq = new ArrayList<>();
         sabaqi = new ArrayList<>();
         manzil = new ArrayList<>();
+        date = new ArrayList<>();
 
 
         searchButton.setOnClickListener(new View.OnClickListener() {
@@ -52,7 +53,7 @@ public class Search extends AppCompatActivity {
             public void onClick(View v) {
                 String rollNum = editTextRollno.getText().toString();
                 displayStudentRecords(rollNum);
-                customAdapter = new CustomAdapter(rollNo,name,age,Class,sabaq,sabaqi,manzil);
+                customAdapter = new CustomAdapter(rollNo,name,age,Class,sabaq,sabaqi,manzil,date);
                 recyclerView.setAdapter(customAdapter);
                 recyclerView.setLayoutManager(new LinearLayoutManager(Search.this));
             }
@@ -70,9 +71,10 @@ public class Search extends AppCompatActivity {
                 name.add(cursor.getString(1));
                 age.add(cursor.getString(2));
                 Class.add(cursor.getString(3));
-                sabaq.add(cursor.getString(4));
-                sabaqi.add(cursor.getString(5));
-                manzil.add(cursor.getString(6));
+                sabaq.add(cursor.getString(5));
+                sabaqi.add(cursor.getString(6));
+                manzil.add(cursor.getString(7));
+                date.add(cursor.getString(8));
             }
         }
     }

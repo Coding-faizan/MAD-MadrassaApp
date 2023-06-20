@@ -7,10 +7,10 @@ public class Student {
     private String age;
     private String Class;
 
-    public Student(String name, String age, String aClass,String rollNo) {
+    public Student(String rollNo, String name, String age,String Class) {
         this.name = name;
         this.age = age;
-        Class = aClass;
+        this.Class = Class;
         this.rollNo = rollNo;
     }
 

@@ -29,10 +29,10 @@ public class studentDetails extends AppCompatActivity {
             public void onClick(View v) {
                 String rollNo = editTextrollNo.getText().toString();
                 String name = editTextname.getText().toString();
-                String age = editTextname.getText().toString();
+                String age = editTextage.getText().toString();
                 String Class = editTextClass.getText().toString();
 
-                Student student = new Student(name,age,Class,rollNo);
+                Student student = new Student(rollNo,name,age,Class);
                 DBHelper dbHelper = new DBHelper(studentDetails.this);
                 dbHelper.insertStudent(student);
 
