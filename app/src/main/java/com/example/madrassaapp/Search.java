@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
@@ -22,11 +23,7 @@ public class Search extends AppCompatActivity {
     private Button searchButton;
     private EditText editTextRollno;
 
-    CustomAdapter customAdapter;
 
-    RecyclerView recyclerView;
-    List<String> rollNo,name,age,Class,sabaq,sabaqi,manzil,date;
-    DBHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,47 +32,15 @@ public class Search extends AppCompatActivity {
 
         searchButton = findViewById(R.id.buttonSearch);
         editTextRollno = findViewById(R.id.editTextRollno);
-        recyclerView =(RecyclerView) findViewById(R.id.recyclerView);
-
-        dbHelper = new DBHelper(Search.this);
-        rollNo = new ArrayList<>();
-        name = new ArrayList<>();
-        age = new ArrayList<>();
-        Class = new ArrayList<>();
-        sabaq = new ArrayList<>();
-        sabaqi = new ArrayList<>();
-        manzil = new ArrayList<>();
-        date = new ArrayList<>();
-
 
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String rollNum = editTextRollno.getText().toString();
-                displayStudentRecords(rollNum);
-                customAdapter = new CustomAdapter(rollNo,name,age,Class,sabaq,sabaqi,manzil,date);
-                recyclerView.setAdapter(customAdapter);
-                recyclerView.setLayoutManager(new LinearLayoutManager(Search.this));
+                Intent intent =new Intent(Search.this,SearchResult.class);
+                intent.putExtra("RollNo",rollNum);
+                startActivity(intent);
             }
         });
-    }
-
-    void displayStudentRecords(String rollNum){
-        Cursor cursor = dbHelper.getStudentAndTaskRecords(rollNum);
-        if (cursor.getCount()==0){
-            Toast.makeText(this,"No record Found",Toast.LENGTH_SHORT).show();
-        }
-        else {
-            while(cursor.moveToNext()){
-                rollNo.add(cursor.getString(0));
-                name.add(cursor.getString(1));
-                age.add(cursor.getString(2));
-                Class.add(cursor.getString(3));
-                sabaq.add(cursor.getString(5));
-                sabaqi.add(cursor.getString(6));
-                manzil.add(cursor.getString(7));
-                date.add(cursor.getString(8));
-            }
-        }
     }
 }

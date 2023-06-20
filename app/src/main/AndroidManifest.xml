@@ -13,6 +13,9 @@
         android:theme="@style/Theme.MadrassaApp"
         tools:targetApi="31">
         <activity
+            android:name=".SearchResult"
+            android:exported="false" />
+        <activity
             android:name=".dailyTasks"
             android:exported="false" />
         <activity
