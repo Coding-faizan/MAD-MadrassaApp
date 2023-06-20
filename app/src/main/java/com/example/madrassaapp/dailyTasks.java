@@ -26,18 +26,22 @@ public class dailyTasks extends AppCompatActivity {
         buttonSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String rollNo = editTextRollNo.getText().toString();
-                String sabaq = editTextSabaq.getText().toString();
-                String sabaqi = editTextSabaqi.getText().toString();
-                String manzil = editTextManzil.getText().toString();
+                String rollNo = editTextRollNo.getText().toString().trim();
+                String sabaq = editTextSabaq.getText().toString().trim();
+                String sabaqi = editTextSabaqi.getText().toString().trim();
+                String manzil = editTextManzil.getText().toString().trim();
 
-                TaskRecords taskRecords = new TaskRecords(rollNo,sabaq,sabaqi,manzil);
-                DBHelper dbHelper = new DBHelper(dailyTasks.this);
+                if (rollNo.isEmpty() || sabaq.isEmpty() || sabaqi.isEmpty() || manzil.isEmpty()) {
+                    Toast.makeText(dailyTasks.this, "Please enter all the tasks", Toast.LENGTH_SHORT).show();
+                } else {
+                    TaskRecords taskRecords = new TaskRecords(rollNo, sabaq, sabaqi, manzil);
+                    DBHelper dbHelper = new DBHelper(dailyTasks.this);
 
-                dbHelper.addTaskRecord(taskRecords);
-                Toast.makeText(dailyTasks.this, "Tasks saved successfully", Toast.LENGTH_SHORT).show();
+                    dbHelper.addTaskRecord(taskRecords);
+                    Toast.makeText(dailyTasks.this, "Tasks saved successfully", Toast.LENGTH_SHORT).show();
 
-                finish();
+                    finish();
+                }
             }
         });
     }

@@ -27,18 +27,22 @@ public class studentDetails extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String rollNo = editTextrollNo.getText().toString();
-                String name = editTextname.getText().toString();
-                String age = editTextage.getText().toString();
-                String Class = editTextClass.getText().toString();
+                String rollNo = editTextrollNo.getText().toString().trim();
+                String name = editTextname.getText().toString().trim();
+                String age = editTextage.getText().toString().trim();
+                String className = editTextClass.getText().toString().trim();
 
-                Student student = new Student(rollNo,name,age,Class);
-                DBHelper dbHelper = new DBHelper(studentDetails.this);
-                dbHelper.insertStudent(student);
+                if (rollNo.isEmpty() || name.isEmpty() || age.isEmpty() || className.isEmpty()) {
+                    Toast.makeText(studentDetails.this, "Please enter all the details", Toast.LENGTH_SHORT).show();
+                } else {
+                    Student student = new Student(name, age, className, rollNo);
+                    DBHelper dbHelper = new DBHelper(studentDetails.this);
+                    dbHelper.insertStudent(student);
 
-                Toast.makeText(studentDetails.this, "Student details saved successfully", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(studentDetails.this, "Student details saved successfully", Toast.LENGTH_SHORT).show();
 
-                finish();
+                    finish();
+                }
             }
         });
     }

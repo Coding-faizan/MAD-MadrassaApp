@@ -51,16 +51,12 @@ public class MainActivity extends AppCompatActivity {
 
         b4.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                String githubUrl = "https://github.com/Coding-faizan/MAD-MadrassaApp";
-
-                Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse(githubUrl));
-                if (intent.resolveActivity(getPackageManager()) != null) {
-                    startActivity(intent);
-                } else {
-                    Toast.makeText(MainActivity.this, "No application available to open GitHub link", Toast.LENGTH_SHORT).show();
-                }
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_VIEW);
+                intent.addCategory(Intent.CATEGORY_BROWSABLE);
+                intent.setData(Uri.parse("https://github.com/Coding-faizan/MAD-MadrassaApp"));
+                startActivity(intent);
             }
         });
 
